@@ -1,1 +1,4 @@
-# Databases-2019-2020-
+## Contributors
+* [nevwalkalone](https://github.com/nevwalkalone)
+* [Petros247](https://github.com/Petros247)
+* [frostedpenguin](https://github.com/frostedpenguin)
