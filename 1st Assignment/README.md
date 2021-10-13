@@ -2,6 +2,7 @@
 In this assignment an environment setup was requested, so the main actions that need to be done are the following:
 * **Install PSQL**, after you've downloaded the appropriate exe (if you're on Windows) from the link that was provided in the README file of this repository.
 * **Install pgAdmin**, after you've downloaded the appropriate exe (if you're on Windows) from the link that was provided. This will be the graphical user interface for Database handling.
+* **Create a database** via pgAdmin or PSQLshell.
 
 Both PSQL and pgAdmin are available for macOs and Linux distributions too.
 
