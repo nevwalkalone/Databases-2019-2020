@@ -27,4 +27,4 @@ Note that the first line of each csv file is a header. Set a parameter in the co
 ```
 Add the foreign key constraints after the tables have been populated.
 
-The ER Diagram can be found [here](https://github.com/nevwalkalone/Databases-2019-2020-AUEB/tree/main/2nd%20Assignment/ER%20Diagram).
+The ER Diagram can be found [here](https://github.com/nevwalkalone/Databases-2019-2020-AUEB/blob/main/2nd%20Assignment/ER%20Diagram/airbnb_ERD.png).
