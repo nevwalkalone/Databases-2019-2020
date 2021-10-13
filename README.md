@@ -11,6 +11,7 @@ tested. PostgreSQL and pgAdmin were used.
    2. [Μovies dataset](https://drive.google.com/file/d/176rM0053_QqeTlTuFgtcq4mm-gyiZlha/view?usp=sharing) (needed for the final Project)
 2. [PostgreSQL](https://www.postgresql.org/)
 3. [pgAdmin](https://www.pgadmin.org/) (GUI)
+4. [Draw.io](https://app.diagrams.net/) for creating ER Diagrams.
 
 ## Contributors
 * [nevwalkalone](https://github.com/nevwalkalone)
