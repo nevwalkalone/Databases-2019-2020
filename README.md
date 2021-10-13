@@ -17,5 +17,5 @@ tested. PostgreSQL and pgAdmin were used.
 * [Petros247](https://github.com/Petros247)
 * [frostedpenguin](https://github.com/frostedpenguin)
 
-## Acknowledgments
+## Acknowledgements
 Most of these assignments are based on similar assignments of the [Department of Computer Science of the University of Texas at Austin](https://www.cs.utexas.edu/)
