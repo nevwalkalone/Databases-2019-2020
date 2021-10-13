@@ -28,4 +28,5 @@ Note that the first line of each csv file is a header. Set a parameter in the co
 will import listings.csv data into the newly created Listing table.
 Add the foreign key constraints after the tables have been populated.
 
+### ER Diagram
 The ER Diagram can be found [here](https://github.com/nevwalkalone/Databases-2019-2020-AUEB/blob/main/2nd%20Assignment/ER%20Diagram/airbnb_ERD.png).
