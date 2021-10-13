@@ -1,5 +1,5 @@
 # Second Assignment
-It is highly suggested that you read all the details [here](https://github.com/nevwalkalone/Databases-2019-2020-AUEB/blob/main/2nd%20Assignment/2nd-announcement.pdf).
+It is highly suggested that you read all the details [here](https://github.com/nevwalkalone/Databases-2019-2020-AUEB/blob/main/2nd%20Assignment/2nd-announcement.pdf), so you get the full view.
 
 In this assignment 3 main actions were requested:
 * Create a table for each csv file from the airbnb dataset,
