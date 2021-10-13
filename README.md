@@ -3,7 +3,7 @@
 1. **Dataset**
    1. [airbnb dataset]() (needed for Αssignments 1-6)
    2. [movies dataset]() (needed for the final Project)
-2. **[PSQL]**
+2. [**PSQL**]
 
 ## Contributors
 * [nevwalkalone](https://github.com/nevwalkalone)
