@@ -8,8 +8,8 @@ tested. PostgreSQL was used.
 
 1. **Dataset**
    1. [airbnb dataset](https://drive.google.com/file/d/1omHRHh8IGSaRKydFO9qPfaZWtmtCLYSt/view?usp=sharing) (needed for Αssignments 1-6)
-   2. [movies dataset]() (needed for the final Project)
-2. [**PostgreSQL**](https://www.postgresql.org/)
+   2. [movies dataset](https://drive.google.com/file/d/176rM0053_QqeTlTuFgtcq4mm-gyiZlha/view?usp=sharing) (needed for the final Project)
+2. [PostgreSQL](https://www.postgresql.org/)
 
 ## Contributors
 * [nevwalkalone](https://github.com/nevwalkalone)
