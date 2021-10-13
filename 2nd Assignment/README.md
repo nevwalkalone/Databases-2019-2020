@@ -26,5 +26,6 @@ Note that the first line of each csv file is a header. Set a parameter in the co
 ```
 Add the foreign key constraints after the tables have been populated.
 
-The ER Diagram was done in:
+The ER Diagram can be drawn with the use of:
 * [Draw.io](https://app.diagrams.net/)
+
