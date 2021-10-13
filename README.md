@@ -7,7 +7,7 @@ tested. PostgreSQL was used.
 ## Requirements
 
 1. **Dataset**
-   1. [airbnb dataset]() (needed for Αssignments 1-6)
+   1. [airbnb dataset](https://drive.google.com/file/d/1omHRHh8IGSaRKydFO9qPfaZWtmtCLYSt/view?usp=sharing) (needed for Αssignments 1-6)
    2. [movies dataset]() (needed for the final Project)
 2. [**PostgreSQL**](https://www.postgresql.org/)
 
