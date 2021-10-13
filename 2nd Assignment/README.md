@@ -10,7 +10,7 @@ Some sql files that create a new table, can be auto generated with the use of ge
 ```console
 python gen_ddl_python3 listings.csv
 ```
-This will save some time. Note that some manual adjustments have to be made in the auto-generated sql file, like primary key constraints. If you want to run a SQL command from a script, run the following command in PSQLshell:
+This will save some time. Note that some manual adjustments have to be made in the auto-generated sql file, like primary key constraints. Firstly you need to connect to your Database via PSQLshell. If you want to run a SQL command from a script, run the following command in PSQLshell:
 ```console
 \i <filename>
 ```
