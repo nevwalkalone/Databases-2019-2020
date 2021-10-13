@@ -14,7 +14,7 @@ This will save some time. Note that some manual adjustments have to be made in t
 ```console
 \i <filename>
 ```
-After all tables were created use the **\copy** command in psql to import all data from the csv files. 
+After all tables were created use the **\copy** command in PSQLshell to import all data from the csv files. 
 Before running copy, run the command:
 ```console
 set client_encoding to 'utf8';
