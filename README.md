@@ -12,11 +12,6 @@ tested. PostgreSQL was used.
 2. [PostgreSQL](https://www.postgresql.org/)
 3. [pgAdmin](https://www.pgadmin.org/) (GUI)
 
-<ol>
-   <li> gamw </li>
-   
-</ol>
-
 ## Contributors
 * [nevwalkalone](https://github.com/nevwalkalone)
 * [Petros247](https://github.com/Petros247)
