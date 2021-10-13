@@ -1,15 +1,15 @@
 # Second Assignment
-
+It is highly suggested that you read the detailed assignment [here](https://github.com/nevwalkalone/Databases-2019-2020-AUEB/blob/main/2nd%20Assignment/2nd-announcement.pdf)
 In this assignment 3 main actions were requested:
 * Create a table for each csv file from the airbnb dataset,
-* Import all csv data into the corresponding tables.
+* Import all csv data into the corresponding tables,
 * Create the ER Diagram.
 
 Some sql files that create a new table, can be auto generated with the use of gen_ddl_python3 script, as some csv files had over 90 columns (listings.csv) and it would be very time consuming to create a sql file manually. For example, if you want to generate a sql file that creates a table that matches the listings csv, place the python script in the same directory with the csv files and type in cmd:
 ```console
 python gen_ddl_python3 listings.csv
 ```
-This will save some time. Note that some manual adjustments have to be made in the auto-generated sql file, like primary and foreign key constraints. If you want to run a SQL command from a script, run the following command in cmd:
+This will save some time. Note that some manual adjustments have to be made in the auto-generated sql file, like primary key constraints. If you want to run a SQL command from a script, run the following command in cmd:
 ```console
 \i <filename>
 ```
@@ -24,4 +24,6 @@ Note that the first line of each csv file is a header. Set a parameter in the co
 ```console
 \copy Listing FROM "airbnb dataset/listings.csv" DELIMITER ',' CSV HEADER;
 ```
-Add the foreign key constraints after the tables have been populated. More details [here](https://github.com/nevwalkalone/Databases-2019-2020-AUEB/blob/main/2nd%20Assignment/2nd-announcement.pdf)
+Add the foreign key constraints after the tables have been populated. More details [here](https://github.com/nevwalkalone/Databases-2019-2020-AUEB/blob/main/2nd%20Assignment/2nd-announcement.pdf) 
+The ER Diagram was done in:
+*[Draw.io](https://app.diagrams.net/)
