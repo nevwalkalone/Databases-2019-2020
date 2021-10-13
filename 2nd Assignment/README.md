@@ -25,5 +25,6 @@ Note that the first line of each csv file is a header. Set a parameter in the co
 \copy Listing FROM "airbnb dataset/listings.csv" DELIMITER ',' CSV HEADER;
 ```
 Add the foreign key constraints after the tables have been populated.
+
 The ER Diagram was done in:
-*[Draw.io](https://app.diagrams.net/)
+* [Draw.io](https://app.diagrams.net/)
