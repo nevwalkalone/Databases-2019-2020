@@ -1,8 +1,8 @@
 ## Requirements
 
 1. **Dataset** 
-  1. [airbnb dataset]() (needed for Αssignments 1-6)
-  2. [movies dataset]() (needed for the final Project)
+   1. [airbnb dataset]() (needed for Αssignments 1-6)
+   2. [movies dataset]() (needed for the final Project)
 
 
 ## Contributors
