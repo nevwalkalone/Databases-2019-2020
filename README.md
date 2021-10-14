@@ -20,4 +20,4 @@ tested. PostgreSQL and pgAdmin were used.
 * [frostedpenguin](https://github.com/frostedpenguin)
 
 ## Acknowledgements
-Most of these assignments are highly based on similar Database projects of the [Department of Computer Science of the University of Texas at Austin](https://www.cs.utexas.edu/).
+Most of these assignments are highly based on Database projects of the [Department of Computer Science of the University of Texas at Austin](https://www.cs.utexas.edu/).
