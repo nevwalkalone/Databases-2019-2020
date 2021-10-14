@@ -1,5 +1,5 @@
 ## Description
-This repository contains all the projects that were completed for the Databases course at **Athens University of Economics and Business**, during the Spring semester of 2019-2020.
+This repository contains all the projects that were completed for the Databases course at *[Athen University of Economics and Business](https://aueb.gr/), during the Spring semester of 2019-2020.
 A remote database via Amazon AWS was created in order to complete these assignments. Alternatively a local database can be created for these projects to be 
 tested. PostgreSQL and pgAdmin were used.
 
