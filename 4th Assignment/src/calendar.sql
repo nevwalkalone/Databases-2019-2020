@@ -46,4 +46,4 @@ ALTER COLUMN adjusted_price TYPE numeric(8,0) using adjusted_price::numeric;
 
 
 
---To pedio available de xreiasthke na to allaksoume giati to xame hdh boolean type
+--We didn't need to modify available field, because it already was of boolean type.
