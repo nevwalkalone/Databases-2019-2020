@@ -1,6 +1,4 @@
-
---Renaming All Tables--
-
+-- Renaming All Tables
 
 ALTER TABLE "Listings"
 RENAME TO "Listing";

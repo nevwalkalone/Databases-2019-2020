@@ -1,4 +1,4 @@
---Creating "Price" Table with the specified fields from Listing
+-- Creating "Price" Table with the specified fields from Listing
 
 CREATE TABLE "Price" AS 
 (SELECT id AS listing_id,price,weekly_price,monthly_price,security_deposit,cleaning_fee,guests_included,extra_people,minimum_nights,maximum_nights,
@@ -6,13 +6,13 @@ minimum_minimum_nights,maximum_minimum_nights,minimum_maximum_nights,maximum_max
 FROM "Listing");
 
 
---adding foreign key
+-- adding foreign key
 
 ALTER TABLE "Price"
 ADD FOREIGN KEY (listing_id) REFERENCES "Listing" (id);
 
 
---changing the type to varchar fist, so we can use the replace function
+-- changing the type to varchar fist, so we can use the replace function
 
 ALTER TABLE "Price"
 ALTER COLUMN price TYPE varchar(10) using price::varchar,
@@ -23,7 +23,7 @@ ALTER COLUMN cleaning_fee TYPE varchar(10) using cleaning_fee::varchar,
 ALTER COLUMN extra_people TYPE varchar(10) using extra_people::varchar;
 
 
---removing the $ sign from fields that have money type
+-- removing the $ sign from fields that have money type
 
 UPDATE "Price"
 SET price = REPLACE(price,',',''),
@@ -34,8 +34,7 @@ cleaning_fee = REPLACE(cleaning_fee,',',''),
 extra_people = REPLACE(extra_people,',','');
 
 
-
---removing the , sign from fields that have money type
+-- removing the , sign from fields that have money type
 
 UPDATE "Price"
 SET price = REPLACE(price,'$',''),
@@ -46,7 +45,7 @@ cleaning_fee = REPLACE(cleaning_fee,'$',''),
 extra_people = REPLACE(extra_people,'$','');
 
 
---altering the column types to numeric
+-- altering the column types to numeric
 
 ALTER TABLE "Price"
 ALTER column price TYPE numeric(8,0) using price::numeric,
@@ -57,8 +56,7 @@ ALTER column cleaning_fee TYPE numeric(8,0) using cleaning_fee::numeric,
 ALTER COLUMN extra_people TYPE numeric(8,0) using extra_people::numeric;
 
 
-
---Dropping the specified fields from Listing except id
+-- Dropping the specified fields from Listing except id
 
 ALTER TABLE "Listing"
 DROP COLUMN price, DROP COLUMN weekly_price, DROP COLUMN monthly_price,DROP COLUMN security_deposit,DROP COLUMN cleaning_fee, DROP COLUMN guests_included,

@@ -1,19 +1,12 @@
-
-------------------------------------------------- PART A----------------------------------------------------------------------------
-
+------------------------------------------------- PART A-----------------------------------------------------------
 
 
 
 
+------------------------------------------------CREATING ALL TABLES------------------------------------------------
 
 
----------------------------------------------CREATING ALL TABLES--------------------------------------------------------------------
-
-
-
-
---Credits table creation
-
+-- Credits table creation
 create table "Credits"(
    "cast" text,
    crew text,
@@ -21,16 +14,14 @@ create table "Credits"(
 );
 
 
---Keywords table creation
-
+-- Keywords table creation
 create table "Keywords"(
    id int,
    keywords text
 );
 
 
---Links table creation
-
+-- Links table creation
 create table "Links"(
    movieId int,
    imdbId int,
@@ -38,8 +29,7 @@ create table "Links"(
 );
 
 
---Movies_Metadata table creation
-
+-- Movies_Metadata table creation
 create table "Movies_Metadata"(
    adult boolean,
    belongs_to_collection text,
@@ -68,8 +58,7 @@ create table "Movies_Metadata"(
 );
 
 
---Ratings_Small table creation
-
+-- Ratings_Small table creation
 create table "Ratings_Small"(
    userId int,
    movieId int,
@@ -80,16 +69,10 @@ create table "Ratings_Small"(
 
 
 
+------------------------------------------------DATA FILTERING-----------------------------------------------------
 
 
-
-------------------------------------------------DATA FILTERING-------------------------------------------------------------------------
-
-
-
-
---Removing Duplicates from each table
-
+-- Removing Duplicates from each table
 
 DELETE FROM "Keywords" as a USING (
       SELECT MIN(ctid) as ctid, id
@@ -109,7 +92,6 @@ DELETE FROM "Credits" as a USING (
       AND a.ctid <> b.ctid;
 
 
-
 DELETE FROM "Movies_Metadata" as a USING (
       SELECT MIN(ctid) as ctid, id
         FROM "Movies_Metadata"
@@ -117,7 +99,6 @@ DELETE FROM "Movies_Metadata" as a USING (
       )as b
       WHERE a.id = b.id
       AND a.ctid <> b.ctid;
-
 
 
 DELETE FROM "Links" as a USING (
@@ -129,8 +110,7 @@ DELETE FROM "Links" as a USING (
       AND a.ctid <> b.ctid;
 
 
-
---Removing records containing movies that don't exist in Movies_Metadata
+-- Removing records containing movies that don't exist in Movies_Metadata
 
 DELETE FROM "Links" WHERE movieid IN (SELECT movieid FROM "Links"
 LEFT JOIN "Movies_Metadata"
@@ -144,11 +124,9 @@ ON "Ratings_Small".movieid="Movies_Metadata".id
 WHERE "Movies_Metadata".id is NULL );
 
 
-
-
---It was necessary to replace single quote with double quote so we can alter the specific
+-- It was necessary to replace single quote with double quote so we can alter the specific
 -- column type from text to json. The reason this change is needed, is because we
---use genre column in some queries in PARTB.
+-- use genre column in some queries in PARTB.
 
 UPDATE "Movies_Metadata"
 SET genres=REPLACE(genres,E'\'',E'\"');
@@ -160,66 +138,54 @@ ALTER COLUMN genres TYPE json using genres::json;
 
 
 
+------------------------------------------------PRIMARY KEYS-------------------------------------------------------
 
 
-------------------------------------------------PRIMARY KEYS--------------------------------------------------------------------------
-
---PK for Credits table
-
+-- PK for Credits table
 ALTER TABLE "Credits"
 ADD PRIMARY KEY(id);
 
 
---PK for Keywords table
-
+-- PK for Keywords table
 ALTER TABLE "Keywords"
 ADD PRIMARY KEY(id);
 
 
---PK for Links table
-
+-- PK for Links table
 ALTER TABLE "Links"
 ADD PRIMARY KEY(movieid);
 
 
---PK for Movies_Metadata table
-
+-- PK for Movies_Metadata table
 ALTER TABLE "Movies_Metadata"
 ADD PRIMARY KEY(id);
 
 
---PK for Ratings_Small table
-
+-- PK for Ratings_Small table
 ALTER TABLE "Ratings_Small"
 ADD PRIMARY KEY(userid,movieid);
 
 
 
 
+------------------------------------------------FOREIGN KEYS-------------------------------------------------------
 
 
-
-------------------------------------------------FOREIGN KEYS------------------------------------------------------------------------
-
-
---FK for Credits table
-
+-- FK for Credits table
 ALTER TABLE "Credits"
 ADD FOREIGN KEY(id) REFERENCES "Movies_Metadata" (id);
 
 
---FK for Keywords table
-
+-- FK for Keywords table
 ALTER TABLE "Keywords"
 ADD FOREIGN KEY(id) REFERENCES "Movies_Metadata" (id);
 
---FK for Links table
 
+-- FK for Links table
 ALTER TABLE "Links"
 ADD FOREIGN KEY(tmdbid) REFERENCES "Movies_Metadata" (id);
 
 
---FK for Ratings_Small table
-
+-- FK for Ratings_Small table
 ALTER TABLE "Ratings_Small"
 ADD FOREIGN KEY(movieid) REFERENCES "Movies_Metadata" (id);

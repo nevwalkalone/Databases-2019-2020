@@ -1,8 +1,4 @@
-
-
 --WITHOUT JOINS
-
-
 ---------------------------------------------------------------------------------------------------------
 
 /* 
@@ -20,8 +16,6 @@ AND date BETWEEN '2015-01-01' AND '2017-12-31'
 LIMIT 200;
 
 ---------------------------------------------------------------------------------------------------------
-
-
 
 /* 
 
@@ -44,10 +38,7 @@ ORDER BY count(id) DESC;
 
 
 --INNER JOINS
-
-
 ---------------------------------------------------------------------------------------------------------
-
 
 /* 
 
@@ -65,7 +56,6 @@ WHERE g.geometry_coordinates_0_0_0_0 > 23.550 AND g.geometry_coordinates_0_0_0_1
 
 ---------------------------------------------------------------------------------------------------------
 
-
 /*
  
 4) Find airbnb listings in the neighbourhood "ΚΟΛΩΝΑΚΙ" which are available for the dates given and their price is <=average
@@ -80,8 +70,6 @@ INNER JOIN "Calendar"
 ON "Listings".id = "Calendar".listing_id
 WHERE date BETWEEN '2020-05-19' AND '2020-05-25' AND available='t' AND neighbourhood_cleansed = 'ΚΟΛΩΝΑΚΙ' AND "Listings".price::numeric <=(SELECT ROUND(AVG("Listings".price::numeric),2) FROM "Listings");
 ---------------------------------------------------------------------------------------------------------
-
-
 
 /* 
 
@@ -102,8 +90,6 @@ ORDER BY review_scores_rating;
  
 ---------------------------------------------------------------------------------------------------------
 
-
-
 /*
 
  6) Find for each neighbourhood average_price,average_score, average_cleaning_fee, etc
@@ -123,7 +109,6 @@ ORDER BY N.neighbourhood;
 
 ---------------------------------------------------------------------------------------------------------
 
-
 /*
 
 7) Find the top 100 reviewers with most reviews 
@@ -142,8 +127,6 @@ LIMIT 100;
 
 ---------------------------------------------------------------------------------------------------------
 
-
-
 /* 
 
 8) Find recent reviews for airbnbs with number of reviews >100 that are  located either on KERAMIKOS OR THISIO with a flexible cancellation policy.
@@ -159,7 +142,6 @@ ON L.id=R.listing_id
 WHERE L.number_of_reviews>100 AND R.date>'2019-06-01' AND L.cancellation_policy='flexible' AND (L.neighbourhood_cleansed= 'ΚΕΡΑΜΕΙΚΟΣ' OR L.neighbourhood_cleansed='ΘΗΣΕΙΟ');
 
 ---------------------------------------------------------------------------------------------------------
-
 
 /* 
 
@@ -177,8 +159,6 @@ GROUP BY N.neighbourhood
 ORDER BY N.neighbourhood;
 
 ---------------------------------------------------------------------------------------------------------
-
-
 
 /*
 
@@ -198,13 +178,8 @@ AND (neighbourhood_cleansed = 'ΑΜΠΕΛΟΚΗΠΟΙ' OR neighbourhood_cleansed
 
 
 
-
-
 --OUTER JOINS
-
 ---------------------------------------------------------------------------------------------------------
-
-
 
 /* 
 
@@ -216,7 +191,6 @@ Output : 30 rows
 
 */
 
-
 SELECT l.host_id,l.host_name,COUNT(l.id) AS Number_of_null_first_reviews
 FROM "Listings" AS l
 FULL OUTER JOIN "Reviews" ON date = l.first_review 
@@ -226,9 +200,6 @@ ORDER BY COUNT(l.id) DESC
 LIMIT 30;
 
 ---------------------------------------------------------------------------------------------------------
-
-
-
 
 /* 
 
@@ -242,8 +213,6 @@ Output : 29790 rows
 So the number of rows is basically equal to the number of reviews that took place during that period.
 
  */
-
-
 
 SELECT l.first_review,l.id,R.date
 FROM "Listings" AS l

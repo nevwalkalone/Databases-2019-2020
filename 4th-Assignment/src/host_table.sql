@@ -1,4 +1,4 @@
---Creating Host table with the fields specified from Listings 
+-- Creating Host table with the fields specified from Listings 
 
 CREATE TABLE "Host" AS 
 (SELECT DISTINCT host_id AS id, host_url AS url, host_name AS name, host_since AS since,
@@ -8,13 +8,13 @@ calculated_host_listings_count AS calculated_listings_count
 FROM "Listing");
 
 
---adding primary key
+-- adding primary key
 
 ALTER TABLE "Host" 
 ADD PRIMARY KEY (id);
 
 
---Dropping the specified columns in Listing except id
+-- Dropping the specified columns in Listing except id
 
 ALTER TABLE "Listing"
  
@@ -26,7 +26,7 @@ ALTER TABLE "Listing"
   DROP COLUMN host_has_profile_pic, DROP COLUMN host_identity_verified, DROP COLUMN calculated_host_listings_count;
 
 
---adding foreign key
+-- adding foreign key
 
 ALTER TABLE "Listing"
 ADD FOREIGN KEY (host_id) REFERENCES "Host" (id);
