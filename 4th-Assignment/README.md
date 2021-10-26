@@ -6,4 +6,4 @@ The objective of this assignment was to modify, erase fields and create new tabl
 
 ## ER Diagram
 
-After all modifications the [ER Diagram](https://github.com/nevwalkalone/Databases-2019-2020/blob/main/4th%20Assignment/ER%20Diagram/airbnb_ERD.jpg) must be updated.
+After all modifications the [ER Diagram](https://github.com/nevwalkalone/PSQL-Projects/blob/main/4th-Assignment/ER%20Diagram/airbnb_ERD.jpg) must be updated.
