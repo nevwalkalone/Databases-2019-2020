@@ -51,5 +51,3 @@ CREATE
 	ON "Review"	
 	FOR EACH ROW
 	EXECUTE PROCEDURE change_listing();
-
-
