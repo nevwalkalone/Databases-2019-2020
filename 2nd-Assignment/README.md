@@ -1,6 +1,6 @@
 # Second Assignment
 
-It is highly suggested that you read all the details [here](https://github.com/nevwalkalone/PSQL-Projects/blob/main/2nd-Assignment/assignment/2nd-assignment.pdf), so you get a full overview.
+It is highly suggested that you read all the details [here](https://github.com/nevwalkalone/PSQL-Projects/blob/main/2nd-Assignment/assignment/2nd-assignment.pdf), so that you get a full overview.
 
 In this assignment 3 main actions were requested:
 
@@ -8,7 +8,7 @@ In this assignment 3 main actions were requested:
 - Import all csv data into the corresponding tables,
 - Create the ER Diagram.
 
-Some sql files that create a new table, can be auto generated with the use of [gen_ddl_python3](https://drive.google.com/file/d/1mVgOWewHsTfu_sQSau208Hb6pmsglOsN/view) script, as some csv files had over 90 columns (listings.csv) and it would be very time consuming to create a sql file manually. For example, if you want to generate a sql file that creates a table that matches the listings csv, place the python script in the same directory with the csv files and type in cmd:
+Some sql files that create a new table, can be auto generated with the use of [gen_ddl_python3](https://drive.google.com/file/d/1mVgOWewHsTfu_sQSau208Hb6pmsglOsN/view) script, as some csv files had over 90 columns (listings.csv) and it would be really time-consuming to create a sql file manually. For example, if you want to generate a sql file that creates a table which matches the listings csv, place the python script in the same directory with the csv files and type in cmd:
 
 ```console
 python gen_ddl_python3 listings.csv
@@ -20,7 +20,7 @@ This will save some time. Note that some manual adjustments have to be made in t
 \i <filename>
 ```
 
-After all tables are created use the **\copy** command in PSQLshell to import all data from the csv files.
+After all tables are created, use the **\copy** command in PSQLshell to import all data from the csv files.
 Before running copy, run the command:
 
 ```console
