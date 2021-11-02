@@ -10,4 +10,4 @@ Both PSQL and pgAdmin are available for macOs and Linux distributions too.
 
 ## October 2021 versions for Windows
 
-![enal](https://github.com/nevwalkalone/PSQL-Projects/blob/main/1st-Assignment/images/example.png)
+![enal](img/example.png)

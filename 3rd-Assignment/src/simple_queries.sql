@@ -219,7 +219,3 @@ FROM "Listings" AS l
 FULL OUTER JOIN "Reviews" AS R ON date = l.first_review AND l.id = R.listing_id
 WHERE R.date BETWEEN '01-01-2016' AND '01-01-2017' 
 ORDER BY first_review;
-
-
-
-

@@ -1,6 +1,3 @@
-
----------------------------------------------------------------------------------------
-
 -- Shows hosts with verified identities
 -- that live on areas that appartments are registered
 -- along with the ones that havent registered a neighbourhood
@@ -51,7 +48,7 @@ GROUP BY R.accommodates
 HAVING COUNT(R.listing_id) > 50
 ORDER BY R.accommodates ASC;
 
--- Show the appartments that cant host more than 3 guests
+-- Show the appartments that can't host more than 3 guests
 -- and that have an esspreso machine as an amenity
 -- results are shown in ascending order based on the
 -- number of accomodates.
@@ -62,5 +59,3 @@ SELECT R.listing_id,R.accommodates FROM "Room" AS R
 JOIN "Room_connects_with_Amenity" AS RA ON RA.listing_id = R.listing_id
 WHERE RA.amenity_id = 56 AND R.accommodates > 3
 ORDER BY R.accommodates ASC;
-
----------------------------------------------------------------------------------------

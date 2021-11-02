@@ -22,4 +22,3 @@ add FOREIGN KEY (listing_id) REFERENCES "Listings"(id);
 
 alter table "Geolocation"
 add FOREIGN KEY (properties_neighbourhood) REFERENCES "Neighbourhoods"(neighbourhood);
-
