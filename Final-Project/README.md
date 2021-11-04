@@ -9,7 +9,7 @@ In this part a new database must be created according to this movies [dataset](h
 
 - Foreign and Primary key constraints for each table,
 - Deletion of duplicates,
-- [ER Diagram](https://github.com/nevwalkalone/PSQL-Projects/blob/main/Final-Project/partA/ER%20Diagram/ERD.png) creation,
+- [ER Diagram](ER-Diagram/airbnb_ERD.jpg) creation,
 - [Report](https://github.com/nevwalkalone/PSQL-Projects/blob/main/Final-Project/assignment-report/project-report.pdf) describing all the steps that were followed when processing the data, in order that they get stored in the database correctly.
 
 For the data import, deletion of duplicates and Primary-Foreign key constraints check [partA.sql](https://github.com/nevwalkalone/PSQL-Projects/blob/main/Final-Project/partA/src/partA.sql).

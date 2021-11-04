@@ -40,4 +40,4 @@ Add the foreign key constraints after the tables have been populated.
 
 ## ER Diagram
 
-The ER Diagram can be found [here](https://github.com/nevwalkalone/PSQL-Projects/blob/main/2nd-Assignment/ER%20Diagram/airbnb_ERD.png).
+The ER Diagram can be found [here](ER-Diagram/airbnb_ERD.png).
