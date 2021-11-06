@@ -15,7 +15,7 @@ tested. PostgreSQL and pgAdmin were used.
 4. [Draw.io](https://draw-io.en.softonic.com/download) for creating ER Diagrams,
 5. [gen_ddl_python3.py](https://drive.google.com/file/d/1mVgOWewHsTfu_sQSau208Hb6pmsglOsN/view?usp=sharing) to auto-generate table creation sql scripts.
 
-## Contributors
+## Collaborators
 * [nevwalkalone](https://github.com/nevwalkalone)
 * [Petros247](https://github.com/Petros247)
 * [frostedpenguin](https://github.com/frostedpenguin)
