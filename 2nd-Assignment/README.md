@@ -4,9 +4,9 @@ It is highly suggested that you read all the details [here](https://github.com/n
 
 In this assignment 3 main actions were requested:
 
-- Create a table for each csv file from the airbnb dataset,
-- Import all csv data into the corresponding tables,
-- Create the ER Diagram.
+- Create a table for each csv file from the airbnb dataset
+- Import all csv data into the corresponding tables
+- Create the ER Diagram
 
 Some sql files that create a new table, can be auto generated with the use of [gen_ddl_python3](https://drive.google.com/file/d/1mVgOWewHsTfu_sQSau208Hb6pmsglOsN/view) script, as some csv files had over 90 columns (listings.csv) and it would be really time-consuming to create a sql file manually. For example, if you want to generate a sql file that creates a table which matches the listings csv, place the python script in the same directory with the csv files and type in cmd:
 
@@ -14,7 +14,7 @@ Some sql files that create a new table, can be auto generated with the use of [g
 python gen_ddl_python3 listings.csv
 ```
 
-This will save some time. Note that some manual adjustments have to be made in the auto-generated sql file, like primary key constraints. Afterwards you need to connect to your Database via PSQLshell. If you want to run a SQL command from a script, run the following command in PSQLshell:
+This will save some time. Note that some manual adjustments have to be made in the auto-generated sql file, like primary key constraints. Afterwards you need to connect to your Database via PSQLshell and run the table creation sql files. If you want to run a SQL command from a script, run the following command in PSQLshell:
 
 ```console
 \i <filename>

@@ -10,4 +10,4 @@ After these modifications the [ER Diagram](https://github.com/nevwalkalone/PSQL-
 
 ## Part B
 
-In this part 5 non trivial Join Queries had to be made, which contain Outer Joins, WHERE and GROUP BY statements. Check [part2.sql](src/part2.sql) to get some ideas or to even test them in your database, and then try creating your own queries.
+In this part, 5 non trivial Join Queries had to be made, which contain Outer Joins, WHERE and GROUP BY statements. Check [part2.sql](src/part2.sql) to get some ideas or to even test them in your database, and then try creating your own queries.
