@@ -1,4 +1,4 @@
-## Description
+## PSQL Projects
 This repository contains all the projects that were completed for the Databases course of the [Department of Computer Science of the Athens University of Economics and Business](https://www.dept.aueb.gr/el/cs), during the Spring semester of 2019-2020.
 
 A remote database via Amazon AWS was created in order to complete these assignments. Alternatively a local database can be created for these projects to be 
@@ -15,7 +15,7 @@ tested. PostgreSQL and pgAdmin were used.
 4. [Draw.io](https://draw-io.en.softonic.com/download) for creating ER Diagrams,
 5. [gen_ddl_python3.py](https://drive.google.com/file/d/1mVgOWewHsTfu_sQSau208Hb6pmsglOsN/view?usp=sharing) to auto-generate table creation sql scripts.
 
-## Contributors
+## Collaborators
 * [nevwalkalone](https://github.com/nevwalkalone)
 * [Petros247](https://github.com/Petros247)
 * [frostedpenguin](https://github.com/frostedpenguin)
