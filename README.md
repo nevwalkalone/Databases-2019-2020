@@ -1,5 +1,7 @@
 ## PSQL Projects
 
+**These projects are no longer maintained or supported**. They're here only for viewing purposes.
+
 This repository contains all the projects that were completed for the Databases course of the [Department of Computer Science of the Athens University of Economics and Business](https://www.dept.aueb.gr/el/cs), during the Spring semester of 2019-2020.
 
 A remote database via Amazon AWS was created in order to complete these assignments. Alternatively a local database can be created for these projects to be
