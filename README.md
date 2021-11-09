@@ -26,3 +26,7 @@ tested. PostgreSQL and pgAdmin were used.
 ## Acknowledgements
 
 Most of these assignments are highly based on Database projects of the [Department of Computer Science of the University of Texas at Austin](https://www.cs.utexas.edu/).
+
+## License
+
+[MIT](LICENSE)
