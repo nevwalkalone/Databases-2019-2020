@@ -29,11 +29,9 @@ VACUUM (ANALYZE) "Room_connects_with_Amenity";
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
 QUERY 1
 EXPLAIN ANALYZE SELECT "Host".id, COUNT(*) FROM "Listing", "Host" WHERE
 "Host".id="Listing".host_id GROUP BY "Host".id;
-
 
 
 --------------
@@ -51,8 +49,6 @@ WITHOUT INDEX
 "                    Heap Fetches: 0"
 "Planning time: 0.164 ms"
 "Execution time: 26.831 ms"
-
-
 
 
 --------------
@@ -73,7 +69,6 @@ WITH INDEX: listing_host_id_idx ON "Listing"(host_id)
 "Execution time: 18.902 ms"
 
 
-
 /* Query 1 : w/out index 26.831 ms w/ index 18.902 ms
  the specific index  speeds up the query cause instead of searching
  through all the host ids each time its able to do a 
@@ -83,11 +78,8 @@ WITH INDEX: listing_host_id_idx ON "Listing"(host_id)
 
 
 
-
-
 QUERY 2
 EXPLAIN ANALYZE SELECT id, price FROM "Listing", "Price" WHERE guests_included > 5 AND price > 40;
-
 
 
 --------------
@@ -105,7 +97,6 @@ WITHOUT INDEX
 "Execution time: 2024.152 ms"
 
 
-
 --------------
 WITH INDEX: price_guestsincl_price_idx ON "Price"(guests_included,price)
 --------------
@@ -121,7 +112,6 @@ WITH INDEX: price_guestsincl_price_idx ON "Price"(guests_included,price)
 "Execution time: 2026.008 ms"
 
 
-
 /* Query 2 : w/out index 2024.152 ms ms w/ index 2026.008 ms
  we tried making an index on guest_included and price in
  order to be able to exclude elements that are not relative
@@ -135,8 +125,6 @@ WITH INDEX: price_guestsincl_price_idx ON "Price"(guests_included,price)
 
 
 
-
-
 QUERY 3
 EXPLAIN ANALYZE 
 SELECT DISTINCT H.neighbourhood,H.name FROM  "Host" AS H
@@ -144,12 +132,9 @@ FULL OUTER JOIN "Location" AS L ON  L.neighbourhood = H.neighbourhood
 WHERE H.identity_verified = true; 
 
 
-
-
 --------------
 WITHOUT INDEX
 --------------
-
 
 "Unique  (cost=10000069465.39..10000073400.80 rows=1016 width=17) (actual time=656.129..1184.151 rows=1031 loops=1)"
 "  ->  Sort  (cost=10000069465.39..10000070777.20 rows=524721 width=17) (actual time=656.128..1000.936 rows=509843 loops=1)"
@@ -166,9 +151,6 @@ WITHOUT INDEX
 "                          Heap Fetches: 0"
 "Planning time: 0.226 ms"
 "Execution time: 1186.659 ms"
-
-
-
 
 
 --------------
@@ -192,9 +174,6 @@ WITH INDEXES: host_identity_idx ON "Host"(identity_verified), location_neighb_id
 "Execution time: 336.469 ms"
 
 
-
-
-
 /* Query 3 : w/out index 1186.659 ms w/ index 336.469 ms 
  we  tried the indexes above in order to
  restrict unecessary search on unverified hosts
@@ -205,15 +184,11 @@ WITH INDEXES: host_identity_idx ON "Host"(identity_verified), location_neighb_id
 
 
 
-
-
 QUERY 4
 EXPLAIN ANALYZE
 SELECT DISTINCT P.weekly_price,P.listing_id FROM "Price" AS P
 FULL OUTER JOIN "Room" AS R ON R.listing_id = P.listing_id
 WHERE R.bathrooms > 1 AND CAST(R.square_feet AS NUMERIC(8)) > 100 ;
-
-
 
 
 --------------
@@ -236,13 +211,9 @@ WITHOUT INDEX
 "Execution time: 9.120 ms"
 
 
-
-
-
 --------------
 WITH INDEX: room_bath_sq_idx ON "Room"(bathrooms,square_feet)
 --------------
-
 
 "Unique  (cost=10000001132.21..10000001138.89 rows=891 width=9) (actual time=6.685..6.701 rows=25 loops=1)"
 "  ->  Sort  (cost=10000001132.21..10000001134.43 rows=891 width=9) (actual time=6.684..6.689 rows=25 loops=1)"
@@ -264,16 +235,11 @@ WITH INDEX: room_bath_sq_idx ON "Room"(bathrooms,square_feet)
 "Execution time: 6.741 ms"
 
 
-
-
-
 /* Query 4: w/out index 9.120 ms w/ index 6.741 ms
  we made a double index on Room's bathrooms and square_feet
  in order to always search rows that satisfy our WHERE 
  requirements. We can see this reduced the execution time. */
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 
 
 
@@ -287,11 +253,9 @@ HAVING COUNT(L.listing_id)>25
 ORDER BY COUNT(L.listing_id) DESC;
 
 
-
 --------------
 WITHOUT INDEX
 --------------
-
 
 "Sort  (cost=1572.85..1572.96 rows=45 width=37) (actual time=16.305..16.313 rows=39 loops=1)"
 "  Sort Key: (count(l.listing_id)) DESC"
@@ -309,9 +273,6 @@ WITHOUT INDEX
 "                          Filter: (geometry_coordinates_0_0_0_1 > '20'::double precision)"
 "Planning time: 0.243 ms"
 "Execution time: 16.373 ms"
-
-
-
 
 
 --------------
@@ -339,20 +300,12 @@ WITH INDEX: geoloc_idx ON "Geolocation"(geometry_coordinates_0_0_0_1)
 "Execution time: 16.217 ms"
 
 
-
-
 /* Query 5: w/out index 16.373 ms w/ index 16.217 ms
  the only possible index we thought is on the geometry_coordinates_0_0_0_1
  in hopes this will restrict our searching data.Although no row  has 
  registered below 20 on that column. So no significant reduction was noticed.
  if this wasnt the case we could improve the execution with our index. */
-
-
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
 
 
 
@@ -364,8 +317,6 @@ WHERE L.neighbourhood_cleansed = 'ΑΜΠΕΛΟΚΗΠΟΙ'
 GROUP BY R.accommodates
 HAVING COUNT(R.listing_id) > 50
 ORDER BY R.accommodates ASC;
-
-
 
 
 --------------
@@ -392,14 +343,9 @@ WITHOUT INDEX
 "Execution time: 12.188 ms"
 
 
-
-
-
-
 --------------
 WITH INDEX: location_neighb_cleansed_idx ON "Location"(neighbourhood_cleansed)
 --------------
-
 
 "Sort  (cost=1097.12..1097.17 rows=19 width=12) (actual time=7.189..7.190 rows=3 loops=1)"
 "  Sort Key: r.accommodates"
@@ -422,19 +368,12 @@ WITH INDEX: location_neighb_cleansed_idx ON "Location"(neighbourhood_cleansed)
 "Execution time: 7.247 ms"
 
 
-
-
 /* Query 6: w/out index 12.188 ms w/ index 7.247 ms
  we created an index on Location's neighbourhood_cleansed so we will only
  be seaching flats that are located on Ampelokhpoi. This cuts
  our data pool by a lot so we are able to achieve a significant reduction
  in our execution time. */
-
-
 --------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
 
 
 
@@ -446,12 +385,9 @@ WHERE RA.amenity_id = 56 AND R.accommodates > 3
 ORDER BY R.accommodates ASC;
 
 
-
-
 --------------
 WITHOUT INDEX
 --------------
-
 
 "Sort  (cost=7687.36..7687.89 rows=213 width=8) (actual time=10.896..10.915 rows=101 loops=1)"
 "  Sort Key: r.accommodates"
@@ -466,9 +402,6 @@ WITHOUT INDEX
 "              Heap Fetches: 0"
 "Planning time: 0.218 ms"
 "Execution time: 10.960 ms"
-
-
-
 
 
 --------------
@@ -496,12 +429,8 @@ WITH INDEXES: ra_amid_accom_idx ON "Room_connects_with_Amenity"(amenity_id), roo
 "Execution time: 5.122 ms"
 
 
-
-
-
 /* Query 7: w/out index 10.96 ms w/ index 5.122 ms
  In this case we need 2 different indexes cause 
  the columns we care are in 2 different tables.This again
  reduces searching costs which results in a way faster execution. */
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
