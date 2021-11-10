@@ -18,4 +18,4 @@ For the data import, deletion of duplicates and Primary-Foreign key constraints 
 
 After completing part A, it was requested to calculate some statistics using queries, as well as to visualize them in charts.
 
-Check `/partB/src/partB.sql` for the queries that were used, and `/statistics` folder which contains visualization for each query.
+Check `/partB/src/partB.sql` for the queries that were used, and `/partB/statistics` folder which contains visualization for each query.
