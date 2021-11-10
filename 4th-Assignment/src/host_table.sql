@@ -1,5 +1,4 @@
 -- Creating Host table with the fields specified from Listings 
-
 CREATE TABLE "Host" AS 
 (SELECT DISTINCT host_id AS id, host_url AS url, host_name AS name, host_since AS since,
 host_location AS location, host_about AS about, host_response_time AS response_time, host_response_rate AS response_rate, host_acceptance_rate AS acceptance_rate, host_is_superhost 
@@ -9,13 +8,11 @@ FROM "Listing");
 
 
 -- adding primary key
-
 ALTER TABLE "Host" 
 ADD PRIMARY KEY (id);
 
 
 -- Dropping the specified columns in Listing except id
-
 ALTER TABLE "Listing"
  
  DROP COLUMN host_url, DROP COLUMN host_name, DROP COLUMN host_since,
@@ -27,6 +24,5 @@ ALTER TABLE "Listing"
 
 
 -- adding foreign key
-
 ALTER TABLE "Listing"
 ADD FOREIGN KEY (host_id) REFERENCES "Host" (id);
