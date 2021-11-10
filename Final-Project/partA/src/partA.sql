@@ -1,4 +1,4 @@
-------------------------------------------------- PART A-----------------------------------------------------------
+------------------------------------------------------PART A-------------------------------------------------------
 
 
 
@@ -7,22 +7,22 @@
 
 
 -- Credits table creation
-create table "Credits"(
+CREATE TABLE "Credits"(
    "cast" text,
    crew text,
    id int
 );
 
-
+  
 -- Keywords table creation
-create table "Keywords"(
+CREATE TABLE "Keywords"(
    id int,
    keywords text
 );
 
 
 -- Links table creation
-create table "Links"(
+CREATE TABLE "Links"(
    movieId int,
    imdbId int,
    tmdbId int
@@ -30,7 +30,7 @@ create table "Links"(
 
 
 -- Movies_Metadata table creation
-create table "Movies_Metadata"(
+CREATE TABLE "Movies_Metadata"(
    adult boolean,
    belongs_to_collection text,
    budget int,
@@ -59,7 +59,7 @@ create table "Movies_Metadata"(
 
 
 -- Ratings_Small table creation
-create table "Ratings_Small"(
+CREATE TABLE "Ratings_Small"(
    userId int,
    movieId int,
    rating double precision,
@@ -74,38 +74,38 @@ create table "Ratings_Small"(
 
 -- Removing Duplicates from each table
 
-DELETE FROM "Keywords" as a USING (
-      SELECT MIN(ctid) as ctid, id
+DELETE FROM "Keywords" AS a USING (
+      SELECT MIN(ctid) AS ctid, id
         FROM "Keywords"
         GROUP BY id HAVING COUNT(*) > 1
-      )as b
+      )AS b
       WHERE a.id = b.id
       AND a.ctid <> b.ctid;
 
 
-DELETE FROM "Credits" as a USING (
-      SELECT MIN(ctid) as ctid, id
+DELETE FROM "Credits" AS a USING (
+      SELECT MIN(ctid) AS ctid, id
         FROM "Credits"
         GROUP BY id HAVING COUNT(*) > 1
-      )as b
+      )AS b
       WHERE a.id = b.id
       AND a.ctid <> b.ctid;
 
 
-DELETE FROM "Movies_Metadata" as a USING (
-      SELECT MIN(ctid) as ctid, id
+DELETE FROM "Movies_Metadata" AS a USING (
+      SELECT MIN(ctid) AS ctid, id
         FROM "Movies_Metadata"
         GROUP BY id HAVING COUNT(*) > 1
-      )as b
+      )AS b
       WHERE a.id = b.id
       AND a.ctid <> b.ctid;
 
 
-DELETE FROM "Links" as a USING (
-      SELECT MIN(ctid) as ctid, tmdbid
+DELETE FROM "Links" AS a USING (
+      SELECT MIN(ctid) AS ctid, tmdbid
         FROM "Links"
         GROUP BY tmdbid HAVING COUNT(*) > 1
-      )as b
+      )AS b
       WHERE a.tmdbid = b.tmdbid
       AND a.ctid <> b.ctid;
 
@@ -115,13 +115,13 @@ DELETE FROM "Links" as a USING (
 DELETE FROM "Links" WHERE movieid IN (SELECT movieid FROM "Links"
 LEFT JOIN "Movies_Metadata"
 ON "Links".tmdbid="Movies_Metadata".id
-WHERE "Movies_Metadata".id is NULL );
+WHERE "Movies_Metadata".id IS NULL );
 
 
 DELETE FROM "Ratings_Small" WHERE movieid IN (SELECT movieid FROM "Ratings_Small"
 LEFT JOIN "Movies_Metadata"
 ON "Ratings_Small".movieid="Movies_Metadata".id
-WHERE "Movies_Metadata".id is NULL );
+WHERE "Movies_Metadata".id IS NULL );
 
 
 -- It was necessary to replace single quote with double quote so we can alter the specific
@@ -133,7 +133,7 @@ SET genres=REPLACE(genres,E'\'',E'\"');
 
 
 ALTER TABLE "Movies_Metadata"
-ALTER COLUMN genres TYPE json using genres::json;
+ALTER COLUMN genres TYPE json USING genres::json;
 
 
 

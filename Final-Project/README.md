@@ -12,10 +12,10 @@ In this part a new database must be created according to this movies [dataset](h
 - [ER Diagram](partA/ER-Diagram/ERD.png) creation
 - [Report](https://github.com/nevwalkalone/PSQL-Projects/blob/main/Final-Project/assignment-report/project-report.pdf) describing all the steps that were followed when processing the data, in order that they get stored in the database correctly
 
-For the data import, deletion of duplicates and Primary-Foreign key constraints check `/partA/partA.sql`.
+For the data import, deletion of duplicates and Primary-Foreign key constraints check `/partA/src/partA.sql`.
 
 ## Part B
 
 After completing part A, it was requested to calculate some statistics using queries, as well as to visualize them in charts.
 
-Check `/partB/partB.sql` for the queries that were used, and `/statistics` folder which contains visualization for each query.
+Check `/partB/src/partB.sql` for the queries that were used, and `/statistics` folder which contains visualization for each query.

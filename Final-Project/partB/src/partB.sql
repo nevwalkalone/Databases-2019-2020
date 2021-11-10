@@ -5,8 +5,8 @@
 
 -- 1ST QUERY) --Movies_per_year--
 SELECT NEW.year_released,COUNT(*) AS movies_per_year
-FROM "Movies_Metadata",(select distinct extract(year from release_date) AS year_released from "Movies_Metadata") AS NEW
-WHERE extract(year from "Movies_Metadata".release_date)=NEW.year_released
+FROM "Movies_Metadata",(SELECT DISTINCT extract(year FROM release_date) AS year_released FROM "Movies_Metadata") AS NEW
+WHERE extract(year FROM "Movies_Metadata".release_date)=NEW.year_released
 GROUP BY NEW.year_released
 ORDER BY NEW.year_released DESC;
 
@@ -15,7 +15,7 @@ ORDER BY NEW.year_released DESC;
 SELECT NEW."genre",COUNT(*) AS "Movies_per_Genre"
 FROM "Movies_Metadata",(
 	WITH tempor (col) AS ( SELECT genres FROM "Movies_Metadata")
-	SELECT DISTINCT "Genres".obj->>'name' AS "genre" FROM tempor, LATERAL (SELECT json_array_elements(tempor.col) as obj) as "Genres") AS NEW
+	SELECT DISTINCT "Genres".obj->>'name' AS "genre" FROM tempor, LATERAL (SELECT json_array_elements(tempor.col) AS obj) AS "Genres") AS NEW
 WHERE "Movies_Metadata".genres::text LIKE  '%'|| NEW."genre" ||'%'
 GROUP BY NEW."genre"
 ORDER BY NEW."genre"
@@ -23,11 +23,11 @@ ORDER BY NEW."genre"
 
 -- 3RD QUERY) --Μovies_per_year_and_genre
 SELECT GENRES."genre",YEARS.year_released,COUNT(*) AS "Μovies_per_year_and_genre"
-FROM "Movies_Metadata",(select distinct extract(year from release_date) AS year_released from "Movies_Metadata")
+FROM "Movies_Metadata",(SELECT DISTINCT extract(year FROM release_date) AS year_released FROM "Movies_Metadata")
 AS YEARS,(
 	WITH tempor (col) AS ( SELECT genres FROM "Movies_Metadata")
-SELECT DISTINCT "Genres".obj->>'name' AS "genre" FROM tempor, LATERAL (SELECT json_array_elements(tempor.col) as obj) as "Genres") AS GENRES
-WHERE extract(year from "Movies_Metadata".release_date)=YEARS.year_released  AND "Movies_Metadata".genres::text LIKE  '%'|| GENRES."genre" ||'%'
+SELECT DISTINCT "Genres".obj->>'name' AS "genre" FROM tempor, LATERAL (SELECT json_array_elements(tempor.col) AS obj) AS "Genres") AS GENRES
+WHERE extract(year FROM "Movies_Metadata".release_date)=YEARS.year_released  AND "Movies_Metadata".genres::text LIKE  '%'|| GENRES."genre" ||'%'
 GROUP BY GENRES."genre",YEARS.year_released
 ORDER BY YEARS.year_released DESC
 
@@ -38,7 +38,7 @@ FROM "Movies_Metadata","Ratings_Small",
 
 (WITH tempor (col) AS ( SELECT genres FROM "Movies_Metadata")
 	SELECT DISTINCT "Genres".obj->>'name' AS "genre" FROM tempor,
-	 LATERAL (SELECT json_array_elements(tempor.col) as obj) as "Genres") AS GENRES
+	 LATERAL (SELECT json_array_elements(tempor.col) AS obj) AS "Genres") AS GENRES
 
 WHERE "Movies_Metadata".id="Ratings_Small".movieid AND "Movies_Metadata".genres::text LIKE  '%'|| GENRES."genre" ||'%'
 GROUP BY GENRES."genre"
@@ -64,6 +64,7 @@ CREATE VIEW "User_Info" AS(
 	FROM "Ratings_Small"
 	GROUP BY userid
 	ORDER BY number_of_ratings);
+
 
 /* The relation between the number of ratings and the average rating per user is that users with a low number of
 ratings are most likely to have a higher average rating than users with higher number of ratings. Also
