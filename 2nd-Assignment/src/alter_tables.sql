@@ -1,24 +1,24 @@
 -- Adding foreing keys in all tables
 
-alter table "Listings"
-add FOREIGN KEY (neighbourhood_cleansed) REFERENCES "Neighbourhoods"(neighbourhood);
+ALTER TABLE "Listings"
+ADD FOREIGN KEY (neighbourhood_cleansed) REFERENCES "Neighbourhoods"(neighbourhood);
 
 
-alter table "Listings_Summary"
-add FOREIGN KEY(id) REFERENCES "Listings"(id);
+ALTER TABLE "Listings_Summary"
+ADD FOREIGN KEY(id) REFERENCES "Listings"(id);
 
 
-alter table "Reviews"
-add FOREIGN KEY (listing_id) REFERENCES "Listings"(id);
+ALTER table "Reviews"
+ADD FOREIGN KEY (listing_id) REFERENCES "Listings"(id);
 
 
-alter table "Reviews_Summary"
-add FOREIGN KEY (listing_id) REFERENCES "Listings"(id);
+ALTER table "Reviews_Summary"
+ADD FOREIGN KEY (listing_id) REFERENCES "Listings"(id);
 
 
-alter table "Calendar"
-add FOREIGN KEY (listing_id) REFERENCES "Listings"(id);
+ALTER table "Calendar"
+ADD FOREIGN KEY (listing_id) REFERENCES "Listings"(id);
 
 
-alter table "Geolocation"
-add FOREIGN KEY (properties_neighbourhood) REFERENCES "Neighbourhoods"(neighbourhood);
+ALTER table "Geolocation"
+ADD FOREIGN KEY (properties_neighbourhood) REFERENCES "Neighbourhoods"(neighbourhood);

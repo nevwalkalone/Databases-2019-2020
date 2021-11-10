@@ -1,4 +1,4 @@
-create table "Listings_Summary" (
+CREATE TABLE "Listings_Summary" (
    id int,
    name varchar(100),
    host_id int,

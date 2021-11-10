@@ -1,4 +1,4 @@
-create table "Geolocation"(
+CREATE TABLE "Geolocation"(
    type varchar(10),
    geometry_type varchar(20),
    geometry_coordinates_0_0_0_0 double precision,

@@ -1,4 +1,4 @@
-create table "Calendar"(
+CREATE TABLE "Calendar"(
    listing_id int,
    date date,
    available boolean,

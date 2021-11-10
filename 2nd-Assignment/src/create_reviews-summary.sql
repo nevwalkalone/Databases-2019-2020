@@ -1,4 +1,4 @@
-create table "Reviews_Summary"(
+CREATE TABLE "Reviews_Summary"(
    listing_id int,
    date date
 );

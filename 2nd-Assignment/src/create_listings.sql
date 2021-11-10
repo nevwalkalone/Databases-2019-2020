@@ -1,4 +1,4 @@
-create table "Listings"(
+CREATE TABLE "Listings"(
    id int,
    listing_url varchar(40),
    scrape_id bigint,

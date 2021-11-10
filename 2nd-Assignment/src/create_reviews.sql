@@ -1,4 +1,4 @@
-create table "Reviews"(
+CREATE TABLE "Reviews"(
    listing_id int,
    id int,
    date date,
