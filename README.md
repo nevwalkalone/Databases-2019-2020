@@ -1,4 +1,4 @@
-## PSQL Projects
+# PSQL Projects
 
 **These projects are no longer maintained or supported**. They're here only for viewing purposes.
 
